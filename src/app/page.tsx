@@ -152,26 +152,23 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex items-center gap-1">
-            <button
-              onClick={() => showToast("新着の通知は1件です")}
-              aria-label="通知"
-              className="w-10 h-10 rounded-full flex items-center justify-center text-[#59413a] hover:text-[#ac3509] transition-colors relative"
-              type="button"
+          <div className="flex items-center gap-2">
+            <Link
+              href="/business"
+              className="text-[11px] font-bold text-[#ac3509] bg-orange-50 hover:bg-orange-100 px-2.5 py-1 rounded-full transition-colors flex items-center gap-0.5 border border-orange-200/60"
             >
-              <span className="material-symbols-outlined text-2xl">notifications</span>
-              <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#ff7043] ring-2 ring-white"></span>
-            </button>
-            <button
-              onClick={() => showToast("マイページからプロフィールを編集できます")}
+              <span>👔 企業版へ</span>
+            </Link>
+
+            <Link
+              href="/mypage"
               aria-label="アカウント"
-              className="w-9 h-9 rounded-full flex items-center justify-center p-0.5 ring-1 ring-slate-200"
-              type="button"
+              className="w-9 h-9 rounded-full flex items-center justify-center p-0.5 ring-1 ring-slate-200 hover:ring-[#ff7043] transition-all"
             >
               <div className="w-full h-full rounded-full bg-gradient-to-tr from-amber-400 to-orange-400 flex items-center justify-center text-white text-xs font-bold shadow-inner">
                 🎓
               </div>
-            </button>
+            </Link>
           </div>
         </div>
       </header>
@@ -213,7 +210,10 @@ export default function HomePage() {
         </section>
 
         {/* 2. 安心・安全のごちそう保証バナー */}
-        <section className="rounded-2xl bg-[#6ffbbe]/20 border border-[#00b27b]/20 p-3.5 flex items-start gap-3 shadow-xs">
+        <Link
+          href="/safety"
+          className="rounded-2xl bg-[#6ffbbe]/20 border border-[#00b27b]/20 p-3.5 flex items-start gap-3 shadow-xs hover:bg-[#6ffbbe]/30 transition-colors"
+        >
           <div className="w-8 h-8 rounded-full bg-[#00b27b] flex items-center justify-center shrink-0 text-white shadow-xs">
             <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>
               verified_user
@@ -230,7 +230,7 @@ export default function HomePage() {
               認証済み企業のみが全額ごちそう！執拗な就活勧誘や個人連絡先の交換は規約で厳重に禁止されています 🛡️
             </p>
           </div>
-        </section>
+        </Link>
 
         {/* 3. 進行中の募集ステータス (リアルタイムカード) */}
         <section className="flex flex-col gap-2">
@@ -567,18 +567,13 @@ export default function HomePage() {
           </Link>
 
           {/* マイページ */}
-          <button
-            onClick={() => {
-              setActiveTab("mypage");
-              showToast("マイページを表示");
-            }}
-            className={`flex flex-col items-center justify-center w-14 h-full transition-colors ${
-              activeTab === "mypage" ? "text-[#ff7043] font-bold" : "text-slate-400"
-            }`}
+          <Link
+            href="/mypage"
+            className="flex flex-col items-center justify-center w-14 h-full text-slate-400 hover:text-[#ff7043] transition-colors"
           >
             <span className="material-symbols-outlined text-2xl">person</span>
             <span className="text-[10px] mt-0.5">マイページ</span>
-          </button>
+          </Link>
         </div>
       </nav>
 
